@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyek Magang</title>
+    <link rel="icon" type="image/x-icon" href="media/lemon.ico" />
+
+    <!-- CSS links -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid mt-3 ms-1 me-1">
+        <!-- Navbar brand and toggle button -->
+        <a class="navbar-brand" href="#">Greensnake</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links (collapsed on small screens) -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#docs">Documentation</a>
+            <a class="nav-link" href="index.html">Back</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- About section -->
+    <section id="about" class="container text-center">
+      <h2 class="section-title">About Project</h2>
+
+      <!-- Here's the project banner -->
+      <div
+        class="mb-4 d-flex align-items-center justify-content-center"
+        style="position: relative"
+      >
+        <button
+          id="banner-prev"
+          class="btn carousel-control-prev-icon"
+          style="margin-right: 35px; width: 40px; height: 40px"
+        ></button>
+        <img
+          id="banner-img"
+          src="media/project1/greensnake-banner.png"
+          alt="foto banner"
+          class="project-banner"
+        />
+        <button
+          id="banner-next"
+          class="btn carousel-control-next-icon"
+          style="margin-left: 35px; width: 40px; height: 40px"
+        ></button>
+      </div>
+
+      <p class="mt-3 px-3 text-fade-in project-about">
+        <span class="text-highlight">Project Greensnake</span> adalah nama
+        temporer dari game pixel art 2 dimensi bergenre
+        <span class="text-highlight">puzzle adventurer</span> untuk platform
+        Windows dan Android yang sedang kukembangkan menggunakan game engine
+        Unity. Pengembangan video game ini terinspirasi dari game petualangan
+        puzzle retro yang pernah populer pada masanya, Tentunya ditambah dengan
+        sentuhan modern dan penuh warna! Game ini juga kukembangkan dengan
+        tujuan untuk
+        <span class="text-highlight">mempelajari dunia game development</span>
+        dan tentunya juga sebagai salah satu
+        <span class="text-highlight">proyek portofolio</span> pribadiku.
+
+        <br /><br />Game ini menceritakan petualangan
+        <span class="text-highlight">seorang jubah merah</span> yang sedang
+        melakukan ekspedisi sebuah gua yang berada di dalam pegunungan. Pemain
+        harus <span class="text-highlight">menemukan jalan keluar</span> dari
+        gua dan naik ke permukaan, lalu menemukan sebuah peti yang berisi peta
+        untuk keluar dari hutan dan pegunungan. Tentu saja dengan melewati
+        banyak <span class="text-highlight">rintangan-rintangan!</span>
+
+        <br /><br />Tapi sayangnya hingga saat ini belum terdapat versi release
+        / full version karena masih dalam tahap pengembangan awal. Namun sudah
+        tersedia <span class="text-highlight">versi Beta Test</span> untuk
+        platform Android! <br />
+        <br />
+        <a
+          style="color: white"
+          href="https://drive.usercontent.google.com/download?id=1HBP_JQTX3YY-jSNmbEJHFV_avXJziMqh&export=download"
+          target="_blank"
+          >Download versi uji coba (Android)!</a
+        >
+      </p>
+    </section>
+
+    <!-- DOCUMENTATION SECTIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN -->
+    <!-- Documentation Section -->
+    <section id="docs" class="container">
+      <h2 class="section-title text-center">Documentation</h2>
+
+      <div class="container py-1 masonry-container">
+        <!-- The Popup (Initially hidden) -->
+        <div id="popup" class="popup">
+          <div class="popup-content">
+            <img class="card-img-top" id="popup-img" src="" alt="Popup Image" />
+
+            <div class="card-body">
+              <button class="btn btn-primary" onclick="closePopup()">
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- This was the pop up initial object -->
+
+        <!-- Image 1 -->
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev1.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">
+                Pengembangan awal level "World Cave"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev2.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">
+                Tampilan resource tilemap 2D rectangular
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev3.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">
+                Pengembangan level "World Main"
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev4.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Pengembangan paling awal</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev5.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">
+                Penggambaran konsep / blueprint level design untuk level
+                lanjutan dari "World Cave".
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev6.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">
+                Pengembangan terkini level 1, scene "World Main".
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image 1 -->
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev7.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">
+                Penggunaan resource monitor untuk monitoring penggunaan hardware
+                saat game dimainkan.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev8.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">
+                Pengembangan visual fitur tips
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- From here still website docs -->
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev9.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Pemrograman fitur tips</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev11.jpg"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Penggambaran sketsa game</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev12.jpg"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">
+                Game development di kantor (dengan roti :)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev13.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Pembuatan UI dengan Photoshop</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev14.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Fitur skip dialogue</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev15.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Pengembangan fitur kapal laut</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev16.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Try and error development</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev17.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Daily development</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev18.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Fitur ground layer switch</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="media/project1/dev19.png"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Pembuatan animasi</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://placehold.co/950x640"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Nomedia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 Surya Latifurrohman. Website Proyek PKL.</p>
+    </footer>
+
+    <!-- JS and Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

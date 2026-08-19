@@ -1,0 +1,376 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
+
+  background: linear-gradient(
+    135deg,
+    rgb(134, 209, 234) 0%,
+    rgb(47, 155, 194) 60%,
+    rgb(0, 79, 148) 100%
+  );
+  color: #000000;
+  text-align: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.row {
+  display: flex; /* Flexbox layout */
+  justify-content: space-around; /* Space the images evenly */
+  flex-wrap: wrap; /* Allow wrapping if the screen is too small */
+}
+
+.col {
+  text-align: center; /* Center the text below each image */
+}
+
+.card {
+  border: none;
+}
+
+.bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -99;
+  pointer-events: none;
+}
+
+.btn-primary {
+  border-radius: 8px;
+}
+
+/* --- SKEUOMORPHIC NAVBAR (Aero Glass) --- */
+.navbar {
+  /* background: rgba(255, 255, 255, 0.25); Highly translucent */
+  background-color: rgba(0, 123, 255, 0.4);
+  backdrop-filter: blur(8px); /* The "Aero" Blur */
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Floating effect */
+  border-radius: 0 0 18px 18px; /* Rounded bottom corners (very Y2K/Aero) */
+  padding: 10px 0;
+  margin-top: 0;
+}
+
+.navbar a {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Text legibility on glass */
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.navbar a:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* Glow effect */
+}
+
+.navbar-brand {
+  color: #fff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  font-size: 1.5rem;
+}
+
+.glassmorphism {
+  /* Glassmorphism effect */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.container {
+  margin-top: 70px;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #007bff;
+  animation: colorChange 6s ease infinite;
+  margin-top: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes colorChange {
+  0% {
+    border-color: #49a2cb;
+  }
+  33% {
+    border-color: #978cf2;
+  }
+  66% {
+    border-color: #f8f0ff;
+  }
+  100% {
+    border-color: #49a2cb;
+  }
+}
+
+.profile-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 30px rgba(0, 123, 255, 0.7);
+}
+
+.section-title {
+  color: #007bff;
+  margin-bottom: 30px;
+}
+
+.text-highlight {
+  color: #fff44f;
+  text-shadow: 2px 2px 0px green;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 110%;
+}
+
+.section-title {
+  color: #001892;
+}
+
+/* For project cards */
+.project-card {
+  position: relative;
+  background-image: linear-gradient(to right, #fff56e, #d7c909);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  height: 100%;
+  padding: 6px;
+  overflow: hidden;
+
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+  will-change: transform;
+}
+
+/* Gradient overlay (smooth direction fade) */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom, #f4ec83, #e3d834);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+}
+
+/* Glow layer */
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  background: radial-gradient(circle at 50% 50%, #fff34f80, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+/* Keep content above overlays */
+.project-card > * {
+  z-index: 1;
+}
+
+/* Hover effect */
+.project-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0px 20px 40px rgba(255, 243, 79, 0.4);
+  cursor: pointer;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card:hover::after {
+  opacity: 1;
+}
+
+.text-fade-in {
+  opacity: 0;
+  animation: fadeIn 3s forwards;
+}
+
+/* For the visit page button */
+.card-body a {
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+  margin-bottom: 9px;
+  display: block;
+}
+
+.project-card img,
+.docs-card img {
+  border-radius: 10px;
+}
+
+.project-banner {
+  border-radius: 10px;
+  border: 3px solid #fff34fde;
+  box-shadow: 0 8px 90px #fff34fde;
+  margin-bottom: 35px;
+  margin-top: 15px;
+  width: 65%;
+}
+
+.project-about {
+  font-size: 20px;
+  border-radius: 10px;
+  background: rgba(0, 123, 255, 0.35);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.8);
+  margin-left: 1%;
+  margin-right: 1%;
+  padding: 3%;
+}
+
+.about-main-fs {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+/* For documentation cards */
+/* For the card images */
+.card-img-top {
+  width: 100%; /* Ensure image fills the width of the card */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensures image fits well without distortion */
+  border-radius: 10px; /* Optional: rounded corners for images */
+  transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+/* Here are the code for masonry effect */
+.masonry-container {
+  text-align: center;
+  column-count: 5;
+  column-gap: 1rem;
+  padding: 1rem;
+}
+
+.masonry-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Glassmorphism effect */
+  background: rgba(0, 123, 255, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.masonry-item:hover {
+  transform: scale(1.1);
+  background: rgba(0, 123, 255, 0.5);
+  box-shadow: 0px 0px 30px rgba(0, 123, 255, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Teks muncul dari bawah */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* The Popup */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Dimmed background */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: white;
+  padding: 1%;
+  text-align: center;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+.popup-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer {
+  background-color: rgba(0, 123, 255, 0.4);
+  backdrop-filter: blur(8px); /* The "Aero" Blur */
+  -webkit-backdrop-filter: blur(8px);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* HERE ARE CODE FOR ADJUSTING CONTENTS BASED ON SCREEN SIZE */
+/* Make responsive adjustments for the masonry layout */
+/* For small screens (mobile) */
+@media (max-width: 575.98px) {
+  .masonry-container {
+    column-count: 2; /* 2 columns for small screens */
+  }
+
+  body,
+  .project-about {
+    font-size: 10px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  #btnProject {
+    font-size: 0.5rem;
+  }
+
+  .about-main-fs {
+    font-size: 13px;
+  }
+}
+
+/* For medium screens and up (tablets and larger) */
+@media (min-width: 576px) {
+  .masonry-container {
+    column-count: 3; /* Optional: can adjust to 3 columns on tablet */
+  }
+
+  body {
+    font-size: 13px;
+  }
+}
+
+/* For large screens and up (desktop) */
+@media (min-width: 992px) {
+  .masonry-container {
+    column-count: 5; /* Default: 5 columns on larger screens */
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .project-about,
+  .about-main-fs {
+    font-size: 22px;
+  }
+}
