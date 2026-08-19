@@ -3,13 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Surya Latifurrohman — Junior Software Developer. Personal site and project showcase."
+    />
     <title>Surya the Website</title>
     <link rel="icon" type="image/x-icon" href="media/lemon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- CSS links -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -37,7 +53,7 @@
           <div class="navbar-nav ms-auto">
             <a class="nav-link" href="#about">About</a>
             <a class="nav-link" href="#projects">Projects</a>
-            <a class="nav-link" href="#docs">Documentation</a>
+            <a class="nav-link" href="#contacts">Find Me</a>
           </div>
         </div>
       </div>
@@ -60,13 +76,13 @@
       <!-- Deskripsi -->
       <p class="mt-3 text-fade-in about-main-fs">
         Hei teman! Selamat datang di website personalku! Namaku
-        <span class="text-highlight">Surya</span>, seorang Junior Software
-        Developer yang santai, humoris, penuh semangat dan terus berusaha untuk
-        berkembang. Aku sangat menyukai proses mempelajari hal-hal baru,
-        terutama dalam dunia teknologi dan sains yang dimana pada era modern ini
-        kian semakin berkembang masif. Di website ini, aku akan menyajikan
-        informasi mengenai diriku dan proyekku dalam dunia teknologi. Check them
-        out!
+        <span class="text-highlight">Surya</span>, aku adalah Junior Software
+        Developer yang casual, humoris, penuh semangat dan terus berusaha untuk
+        berkembang. Oh, wait! Warna favoritku adalah biru! Aku sangat menyukai
+        proses mempelajari hal-hal baru, terutama dalam dunia teknologi dan
+        sains yang dimana pada era modern ini kian semakin berkembang masif. Di
+        website ini, aku akan menyajikan informasi mengenai diriku dan proyekku
+        dalam dunia teknologi. Check them out!
       </p>
     </section>
 
@@ -75,7 +91,7 @@
       <h2 class="section-title text-center py-4">My Projects</h2>
       <div class="row g-4">
         <!-- Project 1 -->
-        <div class="col-md-4 col-6">
+        <div class="col-md-4 col-6 reveal">
           <div class="card project-card">
             <img
               src="media/greensnake/banner.png"
@@ -83,14 +99,13 @@
               alt="Greensnake"
             />
             <div class="card-body">
-              <h5 class="card-title" style="font-weight: bold">Greensnake</h5>
-              <p class="card-text mb-5">
+              <h5 class="card-title">Greensnake</h5>
+              <p class="card-text mb-1">
                 Sebuah video game🎮 2D pixel art, puzzle adventurer🏔️ yang aku
                 buat menggunakan Unity.
               </p>
               <a
-                id="btnProject"
-                class="btn btn-primary"
+                class="btn btn-primary project-btn"
                 href="projects/project1.html"
                 >Kunjungi</a
               >
@@ -99,7 +114,7 @@
         </div>
 
         <!-- Project 2 -->
-        <div class="col-md-4 col-6">
+        <div class="col-md-4 col-6 reveal">
           <div class="card project-card">
             <img
               src="media/magang/banner.png"
@@ -107,16 +122,13 @@
               alt="Website Magang"
             />
             <div class="card-body">
-              <h5 class="card-title" style="font-weight: bold">
-                Project Magang
-              </h5>
-              <p class="card-text mb-5">
+              <h5 class="card-title">Project Magang</h5>
+              <p class="card-text mb-1">
                 Sebuah website personal👨‍💻 simple✌️, menampilkan hal-hal tentang
                 diriku dan dokumentasi📷 selama kegiatan PKL-ku😊
               </p>
               <a
-                id="btnProject"
-                class="btn btn-primary"
+                class="btn btn-primary project-btn"
                 href="projects/project2.html"
                 >Kunjungi</a
               >
@@ -125,7 +137,7 @@
         </div>
 
         <!-- Project 3 -->
-        <div class="col-md-4 col-6">
+        <div class="col-md-4 col-6 reveal">
           <div class="card project-card">
             <img
               src="media/flappybirb/banner.png"
@@ -133,17 +145,14 @@
               alt="FlappyBirb 2.0"
             />
             <div class="card-body">
-              <h5 class="card-title" style="font-weight: bold">
-                Flappy Birb 2.0
-              </h5>
-              <p class="card-text mb-5">
+              <h5 class="card-title">Flappy Birb 2.0</h5>
+              <p class="card-text mb-1">
                 Sebuah proyek video game🎮 2D tap-tap👆 terinspirasi dibuat
                 dengan Unity. Just like the original Flappy Bird!🐤
               </p>
               <!-- Bro flappy birb has its own web. redirect it there -->
               <a
-                id="btnProject"
-                class="btn btn-primary"
+                class="btn btn-primary project-btn"
                 href="projects/project3.html"
                 >Kunjungi</a
               >
@@ -152,7 +161,7 @@
         </div>
 
         <!-- Project 4 -->
-        <div class="col-md-4 col-6">
+        <div class="col-md-4 col-6 reveal">
           <div class="card project-card">
             <img
               src="media/bokumoney/banner.png"
@@ -160,15 +169,14 @@
               alt="BokuMoney"
             />
             <div class="card-body">
-              <h5 class="card-title" style="font-weight: bold">BokuMoney</h5>
-              <p class="card-text mb-5">
+              <h5 class="card-title">BokuMoney</h5>
+              <p class="card-text mb-1">
                 Aplikasi manajemen keuangan💵 pribadi platform Android yang
                 sangat simple✌️, mudah👍, dan tentunya aman🛡️. Hanya kamu dan
                 datamu, tanpa pihak ke-3!🤫
               </p>
               <a
-                id="btnProject"
-                class="btn btn-primary"
+                class="btn btn-primary project-btn"
                 href="projects/project4.html"
                 >Kunjungi</a
               >
@@ -180,8 +188,43 @@
       </div>
     </section>
 
+    <!-- Find Me Section -->
     <section id="contacts" class="container">
       <h2 class="section-title text-center py-4">Find Me</h2>
+      <p class="contact-tagline">Let's connect — drop by any of these.</p>
+      <!-- TODO: swap these # placeholders for your real profile links -->
+      <div class="d-flex justify-content-center gap-3 pb-5 flex-wrap">
+        <a
+          href="#"
+          class="social-link"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="bi bi-github"></i>
+        </a>
+        <a
+          href="#"
+          class="social-link"
+          aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a
+          href="#"
+          class="social-link"
+          aria-label="Instagram"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Email">
+          <i class="bi bi-envelope-fill"></i>
+        </a>
+      </div>
     </section>
 
     <!-- Footer -->

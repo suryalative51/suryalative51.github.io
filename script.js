@@ -1,4 +1,4 @@
-//////////////////// JAVASCRIPT IS PROCEDURAL PROGRAMMING LANGUAGE YOU SHIT ///////////////////////////
+//////////////////// Background decorations, nav, and page interactions ////////////////////////////
 
 // Function to create image backgrounds container
 const backgroundContainer = document.createElement("div");
@@ -78,10 +78,6 @@ function createLemonBg(lemonCount, minSize, maxSize) {
 ////// HERE'S THE MAIN FUNCTION DOCUMENT ON LOAD /////
 // For random background image generators...
 window.addEventListener("DOMContentLoaded", () => {
-  const lemonCount = 3; // Count for the lemons
-  const iceCount = 7; // Count for the ice cubes
-  const bubbleCount = 5;
-
   // true == screen is large
   if (isLargeScreen()) {
     createLemonBg(3, 80, 300);
@@ -111,6 +107,42 @@ function openPopUp(element) {
 // Close popup
 function closePopup() {
   document.getElementById("popup").style.display = "none";
+}
+
+///// NAVBAR — add a bit more presence once you've scrolled past the hero /////
+const siteNavbar = document.querySelector(".navbar");
+if (siteNavbar) {
+  const updateNavbarState = () => {
+    siteNavbar.classList.toggle("scrolled", window.scrollY > 10);
+  };
+  window.addEventListener("scroll", updateNavbarState, { passive: true });
+  updateNavbarState();
+}
+
+///// SCROLL REVEAL — fade project cards in as they enter the viewport /////
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+const revealTargets = document.querySelectorAll(".reveal");
+if (revealTargets.length) {
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    revealTargets.forEach((el) => el.classList.add("is-visible"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealTargets.forEach((el) => revealObserver.observe(el));
+  }
 }
 
 ///// FOR PROJECT BANNER ON EACH PROJECT PAGES ////

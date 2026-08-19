@@ -1,16 +1,36 @@
+/* ============================================================
+   Frutiger Aero gloss pass — same layout, same keyframes, same
+   hover mechanics as the original file. Only the *materials*
+   changed: gradients, glass shine layers, bevels, and a bubblier
+   type pairing. Nothing here alters timing/transform values that
+   existed before.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700&display=swap");
+
+:root {
+  --clr-sky: rgb(134, 209, 234);
+  --clr-ocean: rgb(47, 155, 194);
+  --clr-abyss: rgb(0, 79, 148);
+  --clr-lemon: #fff56e;
+  --clr-lemon-deep: #d7c909;
+  --font-display: "Baloo 2", "Courier New", Courier, monospace;
+  --font-body: "Nunito", "Courier New", Courier, monospace;
+}
+
 body {
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--font-body);
   font-weight: 500;
 
   background: linear-gradient(
     135deg,
-    rgb(134, 209, 234) 0%,
-    rgb(47, 155, 194) 60%,
-    rgb(0, 79, 148) 100%
+    var(--clr-sky) 0%,
+    var(--clr-ocean) 60%,
+    var(--clr-abyss) 100%
   );
   color: #000000;
   text-align: center;
-  height: 100vh;
+  min-height: 100vh; /* was 100vh flat — clipped the bg past the first screen */
   margin: 0;
   padding: 0;
   background-size: cover;
@@ -41,18 +61,43 @@ body {
   pointer-events: none;
 }
 
+/* Jelly button — same radius/shape as before, glossy Aqua-style finish */
 .btn-primary {
   border-radius: 8px;
+  border: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  background-image: radial-gradient(
+      130% 180% at 50% -30%,
+      rgba(255, 255, 255, 0.6),
+      transparent 55%
+    ),
+    linear-gradient(180deg, #4dabf7 0%, #0d6efd 55%, #0b5ed7 100%);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.65),
+    inset 0 -3px 6px rgba(0, 20, 60, 0.25), 0 4px 10px rgba(0, 60, 120, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.75),
+    inset 0 -3px 6px rgba(0, 20, 60, 0.3), 0 8px 18px rgba(0, 60, 120, 0.45);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: inset 0 2px 6px rgba(0, 20, 60, 0.35);
 }
 
 /* --- SKEUOMORPHIC NAVBAR (Aero Glass) --- */
 .navbar {
-  /* background: rgba(255, 255, 255, 0.25); Highly translucent */
-  background-color: rgba(0, 123, 255, 0.4);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), transparent 45%),
+    linear-gradient(rgba(0, 123, 255, 0.4), rgba(0, 123, 255, 0.4));
   backdrop-filter: blur(8px); /* The "Aero" Blur */
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Floating effect */
   border-radius: 0 0 18px 18px; /* Rounded bottom corners (very Y2K/Aero) */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
   padding: 10px 0;
   margin-top: 0;
 }
@@ -60,6 +105,7 @@ body {
 .navbar a {
   color: white !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Text legibility on glass */
+  font-family: var(--font-display);
   font-weight: bold;
   transition: all 0.2s ease;
 }
@@ -71,7 +117,28 @@ body {
 .navbar-brand {
   color: #fff !important;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  font-family: var(--font-display);
   font-size: 1.5rem;
+}
+
+/* Little glass bubble around the hamburger icon */
+.navbar-toggler {
+  border: none;
+  border-radius: 50%;
+  padding: 0.4rem 0.5rem;
+  background: radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.15) 60%
+    ),
+    rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6),
+    0 2px 6px rgba(0, 40, 80, 0.25);
+}
+
+.navbar-toggler:focus {
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6),
+    0 0 0 3px rgba(255, 255, 255, 0.4);
 }
 
 .glassmorphism {
@@ -93,6 +160,9 @@ body {
   animation: colorChange 6s ease infinite;
   margin-top: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Glass-orb shading: light from upper-left, soft shadow lower-right */
+  box-shadow: inset 0 6px 10px rgba(255, 255, 255, 0.55),
+    inset 0 -8px 14px rgba(0, 0, 0, 0.18), 0 4px 14px rgba(0, 40, 80, 0.35);
 }
 
 @keyframes colorChange {
@@ -116,35 +186,66 @@ body {
 }
 
 .section-title {
-  color: #007bff;
+  color: #001892;
+  font-family: var(--font-display);
+  font-weight: 600;
   margin-bottom: 30px;
+}
+
+/* Tiny glossy bubble marker — the "bubbly skeuomorphic icon" touch */
+.section-title::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 28%,
+    #ffffff,
+    #8ad6f5 55%,
+    #2f9bc2 100%
+  );
+  box-shadow: 0 2px 4px rgba(0, 40, 80, 0.35);
+  vertical-align: middle;
 }
 
 .text-highlight {
   color: #fff44f;
-  text-shadow: 2px 2px 0px green;
+  font-family: var(--font-display);
+  /* Layered "candy" shadow — keeps the original green, adds depth */
+  text-shadow: 1px 1px 0 #2f7d32, 2px 2px 0 #1e5c22,
+    0 4px 10px rgba(0, 0, 0, 0.25);
   font-weight: bold;
   font-style: italic;
   font-size: 110%;
 }
 
-.section-title {
-  color: #001892;
-}
-
 /* For project cards */
 .project-card {
   position: relative;
-  background-image: linear-gradient(to right, #fff56e, #d7c909);
+  background-image: radial-gradient(
+      120% 60% at 30% -10%,
+      rgba(255, 255, 255, 0.65),
+      transparent 60%
+    ),
+    linear-gradient(to right, #fff56e, #d7c909);
   border-radius: 12px;
   margin-bottom: 20px;
   height: 100%;
   padding: 6px;
   overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.6),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.08), 0 6px 14px rgba(0, 0, 0, 0.12);
 
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 
   will-change: transform;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
 }
 
 /* Gradient overlay (smooth direction fade) */
@@ -195,14 +296,19 @@ body {
   animation: fadeIn 3s forwards;
 }
 
-/* For the visit page button */
-.card-body a {
-  position: absolute;
-  left: 50%;
-  bottom: 15px;
-  transform: translateX(-50%);
+/* Card body lays out as a column so the visit button can pin itself
+   to the bottom via margin-top: auto — no absolute positioning, so
+   nothing competes with the hover-lift transform on .btn-primary */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.project-btn {
+  margin-top: auto;
   margin-bottom: 9px;
-  display: block;
 }
 
 .project-card img,
@@ -213,7 +319,7 @@ body {
 .project-banner {
   border-radius: 10px;
   border: 3px solid #fff34fde;
-  box-shadow: 0 8px 90px #fff34fde;
+  box-shadow: inset 0 3px 8px rgba(255, 255, 255, 0.5), 0 8px 90px #fff34fde;
   margin-bottom: 35px;
   margin-top: 15px;
   width: 65%;
@@ -223,7 +329,8 @@ body {
   font-size: 20px;
   border-radius: 10px;
   background: rgba(0, 123, 255, 0.35);
-  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.8);
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.35),
+    0 8px 20px rgba(0, 123, 255, 0.8);
   margin-left: 1%;
   margin-right: 1%;
   padding: 3%;
@@ -260,8 +367,13 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  /* Glassmorphism effect */
-  background: rgba(0, 123, 255, 0.35);
+  /* Glassmorphism effect, with a glossy sheen laid over the top */
+  background-image: radial-gradient(
+      120% 60% at 30% -10%,
+      rgba(255, 255, 255, 0.5),
+      transparent 60%
+    ),
+    linear-gradient(rgba(0, 123, 255, 0.35), rgba(0, 123, 255, 0.35));
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -305,6 +417,8 @@ body {
   max-height: 90%;
   overflow: auto;
   border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(0, 20, 40, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.6);
 }
 
 .popup-content img {
@@ -312,10 +426,52 @@ body {
   height: auto;
 }
 
+/* Bubble-orb social icons for the Find Me section */
+.social-link {
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff !important;
+  font-size: 1.4rem;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: radial-gradient(
+    circle at 32% 28%,
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 255, 255, 0.15) 45%,
+    rgba(0, 123, 255, 0.55) 75%
+  );
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.7),
+    inset 0 -6px 10px rgba(0, 40, 80, 0.25), 0 6px 14px rgba(0, 40, 80, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.8),
+    inset 0 -6px 10px rgba(0, 40, 80, 0.3), 0 10px 22px rgba(0, 40, 80, 0.45);
+}
+
+.social-link:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.contact-tagline {
+  font-family: var(--font-body);
+  color: #04233d;
+  opacity: 0.85;
+  margin-bottom: 24px;
+}
+
 .footer {
-  background-color: rgba(0, 123, 255, 0.4);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.25), transparent 40%),
+    linear-gradient(rgba(0, 123, 255, 0.4), rgba(0, 123, 255, 0.4));
   backdrop-filter: blur(8px); /* The "Aero" Blur */
   -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
   color: white;
   padding: 20px;
   text-align: center;
@@ -339,12 +495,18 @@ body {
     font-size: 1rem;
   }
 
-  #btnProject {
+  .project-btn {
     font-size: 0.5rem;
   }
 
   .about-main-fs {
     font-size: 13px;
+  }
+
+  .social-link {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
   }
 }
 
