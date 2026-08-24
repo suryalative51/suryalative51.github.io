@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    Frutiger Aero gloss pass — same layout, same keyframes, same
    hover mechanics as the original file. Only the *materials*
    changed: gradients, glass shine layers, bevels, and a bubblier
@@ -19,7 +19,7 @@
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: monospace;
   font-weight: 500;
 
   background: linear-gradient(
