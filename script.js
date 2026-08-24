@@ -82,7 +82,7 @@ window.addEventListener("DOMContentLoaded", () => {
   if (isLargeScreen()) {
     createLemonBg(3, 80, 300);
     createRandomElements(7, "media/ice.png", 420, 600); // To create the ice cubes
-    createRandomElements(8, "media/bubble.png", 200, 400); // To create the bubbles
+    createRandomElements(10, "media/bubble.png", 200, 400); // To create the bubbles
     createRandomElements(4, "media/mint.png", 150, 200); // To create mint leaves
   } else {
     createLemonBg(3, 80, 170);
